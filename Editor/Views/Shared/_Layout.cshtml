@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/static/layout.css/" >
+</head>
+<body>
+    @if (SectionWriters.ContainsKey(SectionNames.Header)) {
+        <header>
+            @await RenderSectionAsync(SectionNames.Header);
+        </header>
+    }
+    <main>
+        @RenderBody()
+    </main>
+
+    @if (SectionWriters.ContainsKey(SectionNames.Footer)) {
+        <footer>
+            @await RenderSectionAsync(SectionNames.Footer)
+        </footer>
+    }
+
+    @if (SectionWriters.ContainsKey(SectionNames.Script)) {
+        @await RenderSectionAsync(SectionNames.Script)
+
+    }
+</body>
+</html>
